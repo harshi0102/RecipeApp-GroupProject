@@ -1,0 +1,22 @@
+<%= form_with model: @food, url: foods_path, class: 'form', data: { turbo_frame: 'food_form' } do |form| %>
+  <h1 class="new-recipe-title">New Food</h1>
+  <div class="field">
+  <%= form.label :name, class: "name-label" %>
+  <%= form.text_field :name, placeholder: "Name", class: "name-input", name: "food[name]" %>
+  </div>
+  <div class="field">
+  <%= form.label :prepation_time, class: "name-label" %>
+  <%= form.select :measurement_unit, options_for_select(['gr', 'lt', 'oz', 'units'], 'units'), placeholder: "Measurement Unit", class: "name-input" %>
+  </div>
+  <div class="field">
+  <%= form.label :cooking_time, class: "name-label" %>
+  <%= form.number_field :price, placeholder: "Price", class: "name-input" %>
+  </div>
+  <div class="field">
+  <%= form.label :description, class: "name-label" %>
+  <%= form.number_field :quantity, placeholder: "Quantity", class: "name-input" %>
+  </div>
+  <div class="field">
+  <%= form.submit "Add Food", class: "new-button" %>
+  </div>
+  <% end %>
