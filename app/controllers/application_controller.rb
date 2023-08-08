@@ -1,3 +1,6 @@
+# Base class for all controllers in the application.
+# Provides common functionality and behavior for controllers.
+
 class ApplicationController < ActionController::Base
   helper_method :current_user, :current_user_id
 

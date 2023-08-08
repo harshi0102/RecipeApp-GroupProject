@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeMeasurementUnitToStringInFoods < ActiveRecord::Migration[7.0]
   def up
     change_column :foods, :measurement_unit, :string
