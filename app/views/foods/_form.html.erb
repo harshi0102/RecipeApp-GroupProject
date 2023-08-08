@@ -1,22 +1,28 @@
+<div class="food-form">
 <%= form_with model: @food, url: foods_path, data: { turbo_frame: 'food_form' } do |form| %>
-  <%= form.hidden_field :authenticity_token, value: form_authenticity_token %>  <h1 class="new-recipe-title">New Food</h1>
+  <%= form.hidden_field :authenticity_token, value: form_authenticity_token %>
+  <h1 class="new-recipe-title">New Food</h1>
   <div class="field">
-  <%= form.label :name, class: "name-label" %>
-  <%= form.text_field :name, placeholder: "Name", class: "name-input", name: "food[name]" %>
+    <%= form.label :name, class: "name-label" %>
+    <%= form.text_field :name, placeholder: "Name", class: "name-input" %>
   </div>
   <div class="field">
-  <%= form.label :prepation_time, class: "name-label" %>
-  <%= form.select :measurement_unit, options_for_select(['gr', 'lt', 'oz', 'units'], 'units'), placeholder: "Measurement Unit", class: "name-input" %>
+    <%= form.label :measurement_unit, class: "name-label" %>
+    <%= form.select :measurement_unit, options_for_select(['gr', 'lt', 'oz', 'units'], 'units'), placeholder: "Measurement Unit", class: "name-input" %>
   </div>
   <div class="field">
-  <%= form.label :cooking_time, class: "name-label" %>
-  <%= form.number_field :price, placeholder: "Price", class: "name-input" %>
+    <%= form.label :price, class: "name-label" %>
+    <%= form.number_field :price, placeholder: "Price", class: "name-input" %>
   </div>
   <div class="field">
-  <%= form.label :description, class: "name-label" %>
-  <%= form.number_field :quantity, placeholder: "Quantity", class: "name-input" %>
+    <%= form.label :quantity, class: "name-label" %>
+    <%= form.number_field :quantity, placeholder: "Quantity", class: "name-input" %>
   </div>
   <div class="field">
-  <%= form.submit "Add Food", class: "new-button" %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
   </div>
-  <% end %>
+  <div class="field">
+    <%= form.submit "Add Food", class: "new-button" %>
+  </div>
+<% end %>
+</div>
