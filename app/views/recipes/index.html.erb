@@ -1,0 +1,35 @@
+<div class="main-container">
+    <div class="recipes-container">
+        <h1 class="page-title">Recipe List</h1>
+        <button class="new-button"><%= link_to 'New Recipe', new_recipe_path %></button>
+    </div>
+  <table class="table-foods">
+  <thead class="header-foods">
+    <tr class="first-row">
+      <th class="fr-food">Name</th>
+      <th class="fr-food">Preparation Time</th>
+      <th class="fr-food">Cooking Time</th>
+      <th class="fr-food">Description</th>
+      <th class="fr-food">Public</th>
+      <!-- Add more columns if needed -->
+      <th class="fr-food">Actions</th>
+    </tr>
+  </thead>
+  <tbody class="body-foods">
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= link_to recipe.name, recipe_path(recipe) %></td>
+        <td><%= recipe.preparation_time %></td>
+        <td><%= recipe.cooking_time %></td>
+        <td><%= recipe.description %></td>
+        <td><%= recipe.public ? 'Yes' : 'No' %></td>
+        <!-- Add more cells if needed -->
+        <td>
+          <%= button_to 'Delete', recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?' }, class: "new-button" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
