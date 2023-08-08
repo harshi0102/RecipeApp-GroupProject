@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_230_807_192_228) do
+ActiveRecord::Schema[7.0].define(version: 20_230_808_093_837) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 20_230_807_192_228) do
     t.decimal 'price', precision: 10, scale: 2
     t.integer 'quantity'
     t.bigint 'user_id'
+    t.index ['user_id'], name: 'index_foods_on_unique_user_id'
     t.index ['user_id'], name: 'index_foods_on_user_id'
   end
 
@@ -30,7 +31,9 @@ ActiveRecord::Schema[7.0].define(version: 20_230_807_192_228) do
     t.bigint 'recipe_id'
     t.bigint 'food_id'
     t.index ['food_id'], name: 'index_recipe_foods_on_food_id'
+    t.index ['food_id'], name: 'index_recipe_foods_on_unique_food_id'
     t.index ['recipe_id'], name: 'index_recipe_foods_on_recipe_id'
+    t.index ['recipe_id'], name: 'index_recipe_foods_on_unique_recipe_id'
   end
 
   create_table 'recipes', force: :cascade do |t|
@@ -40,6 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 20_230_807_192_228) do
     t.text 'description'
     t.boolean 'public'
     t.bigint 'user_id'
+    t.index ['user_id'], name: 'index_recipes_on_unique_user_id'
     t.index ['user_id'], name: 'index_recipes_on_user_id'
   end
 
