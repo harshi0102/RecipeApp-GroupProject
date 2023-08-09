@@ -50,7 +50,4 @@ class RecipesController < ApplicationController
     @recipes = Recipe.where(public: true).includes(:user, recipe_foods: :food).order(created_at: :desc)
   end
 end
-#   def show
-#     @recipe = Recipe.find(params[:id])
-#   end
-# end
+

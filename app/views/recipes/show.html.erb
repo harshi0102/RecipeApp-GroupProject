@@ -1,3 +1,5 @@
+<% if @recipe.public? || @recipe.user == current_user %>
+
 <h1><%= @recipe.name %></h1>
 
 <% if @recipe %>
@@ -8,6 +10,7 @@
         <th>Cooking Time</th>
         <th>Description</th>
         <th>Public</th>
+        <th>Status Change</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -18,13 +21,29 @@
         <td><%= @recipe.description %></td>
         <td><%= @recipe.public ? 'Yes' : 'No' %></td>
         <td>
+          <%= form_for(@recipe, url: recipe_path(@recipe), method: :patch, remote: true) do |f| %>
+          <div class="form-check form-switch">
+            <%= f.label :public, class: "form-check-label" do %>
+            <%= f.check_box :public, class: "form-check-input", checked: @recipe.public? %>
+            <%= @recipe.public? ? "Public" : "Private" %>
+          <% end %>
+         </div>
+         <%= f.submit "Update Visibility", class: "btn btn-primary" %>
+         <% end %>
+        </td>
+        <td>
           <% if @recipe.user == current_user %>
             <%= button_to "Delete", recipe_path(@recipe), method: :delete, data: { confirm: "Are you sure you want to delete this recipe?" } %>
+            <%= button_to "Add New Food", new_recipe_food_path(@recipe), class: "add-new-food" %>
           <% end %>
         </td>
       </tr>
     </tbody>
   </table>
+<% end %>
+
+<% else %>
+    <p>This recipe is private and cannot be viewed.</p>
 <% end %>
 
 <%= link_to 'Back to Recipes List', recipes_path %>
