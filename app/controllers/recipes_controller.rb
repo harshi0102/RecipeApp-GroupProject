@@ -24,7 +24,6 @@ class RecipesController < ApplicationController
     end
   end
 
-
   def show
     @recipe = Recipe.find(params[:id])
   end
@@ -42,6 +41,7 @@ class RecipesController < ApplicationController
     @recipe.destroy
     redirect_to recipes_path, notice: 'Recipe was successfully deleted.'
   end
+
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
@@ -49,8 +49,8 @@ class RecipesController < ApplicationController
   def public_recipes
     @recipes = Recipe.where(public: true).includes(:user, recipe_foods: :food).order(created_at: :desc)
   end
-
-  def show
-    @recipe = Recipe.find(params[:id])
-  end
 end
+#   def show
+#     @recipe = Recipe.find(params[:id])
+#   end
+# end
