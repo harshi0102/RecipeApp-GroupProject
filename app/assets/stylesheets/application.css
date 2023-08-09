@@ -285,9 +285,9 @@ body {
 }
 
 tbody tr:nth-child(even) {
-  background: #CCC;
+  background: #ccc;
 }
 
 tbody tr:nth-child(odd) {
-  background: #FFF;
+  background: #fff;
 }
