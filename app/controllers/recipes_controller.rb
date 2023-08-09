@@ -1,9 +1,9 @@
 class RecipesController < ApplicationController
   def index
     @recipes = if user_signed_in?
-                 current_user.recipes
+                 current_user.recipes.or(Recipe.where(public: true))
                else
-                 Recipe.all
+                 Recipe.where(public: true)
                end
   end
 
@@ -33,7 +33,16 @@ class RecipesController < ApplicationController
   end
 
   def update
-    # Implementation for update action
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(recipe_params)
+      flash[:success] = 'Recipe visibility updated.'
+    else
+      flash[:error] = 'Failed to update recipe visibility.'
+    end
+    respond_to do |format|
+      format.html { redirect_to @recipe }
+      format.js # Add this line to respond to AJAX request
+    end
   end
 
   def destroy
@@ -45,6 +54,6 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public, :user_id)
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
 end
