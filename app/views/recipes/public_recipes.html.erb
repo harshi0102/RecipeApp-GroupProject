@@ -1,9 +1,13 @@
 <h1>Public Recipes</h1>
 
-<ul>
-  <% @recipes.each do |recipe| %>
-    <li>
-      <%= link_to recipe.name, recipe_path(recipe) %>
-    </li>
-  <% end %>
-</ul>
+<% if @recipes %>
+  <ul>
+    <% @recipes.each do |recipe| %>
+      <li>
+        <%= link_to recipe.name, recipe_path(recipe) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No public recipes found.</p>
+<% end %>
