@@ -1,10 +1,10 @@
 class RecipesController < ApplicationController
   def index
-    if user_signed_in?
-      @recipes = current_user.recipes.or(Recipe.where(public: true))
-    else
-      @recipes = Recipe.where(public: true)
-    end
+    @recipes = if user_signed_in?
+                 current_user.recipes.or(Recipe.where(public: true))
+               else
+                 Recipe.where(public: true)
+               end
   end
 
   def new
@@ -35,13 +35,13 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
-      flash[:success] = "Recipe visibility updated."
+      flash[:success] = 'Recipe visibility updated.'
     else
-      flash[:error] = "Failed to update recipe visibility."
+      flash[:error] = 'Failed to update recipe visibility.'
     end
     respond_to do |format|
       format.html { redirect_to @recipe }
-      format.js   # Add this line to respond to AJAX request
+      format.js # Add this line to respond to AJAX request
     end
   end
 
