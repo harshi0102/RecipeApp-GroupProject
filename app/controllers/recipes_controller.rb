@@ -1,6 +1,10 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    if user_signed_in?
+      @recipes = current_user.recipes
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def new
