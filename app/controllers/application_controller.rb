@@ -1,16 +1,22 @@
-# Base class for all controllers in the application.
-# Provides common functionality and behavior for controllers.
-
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :current_user_id
+  # Include the CanCanCan controller add-ons
+  include CanCan::ControllerAdditions
 
-  private
+  before_action :authenticate_user!
 
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, alert: exception.message
   end
 
-  def current_user_id
-    current_user&.id
+  def after_sign_out_path_for(_resource_or_scope)
+    new_user_session_path
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name email password password_confirmation remember_me])
   end
 end

@@ -1,8 +1,6 @@
-# Controller for managing food items.
-
 class FoodsController < ApplicationController
   def index
-    @foods = Food.all
+    @foods = Food.where(user_id: current_user.id)
   end
 
   def new
@@ -10,14 +8,13 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = Food.new(food_params)
-
+    @food = Food.new(user_id: current_user.id, **food_params)
     if @food.save
       flash[:notice] = 'Food created successfully'
-      render turbo_stream: turbo_stream.append('food_list', partial: 'food', locals: { food: @food })
+      redirect_to foods_path
     else
       flash[:alert] = 'Food creation failed'
-      render turbo_stream: turbo_stream.replace('food_form', partial: 'form', locals: { food: @food })
+      render :new
     end
   end
 
