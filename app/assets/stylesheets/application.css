@@ -261,3 +261,33 @@ body {
   justify-content: space-between;
   gap: 10px;
 }
+
+.user-recipes {
+  width: 40rem;
+  margin-top: 1rem;
+}
+
+.recipe-box {
+  border: 1px solid black;
+  border-radius: 7px;
+  height: 3.5rem;
+  list-style-type: none;
+  padding: 1.5%;
+}
+
+.recipe-detail-table {
+  width: 45rem;
+}
+
+.recipe-detail-table thead {
+  background-color: darkcyan;
+  color: white;
+}
+
+tbody tr:nth-child(even) {
+  background: #ccc;
+}
+
+tbody tr:nth-child(odd) {
+  background: #fff;
+}
