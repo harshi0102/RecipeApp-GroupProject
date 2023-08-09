@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   get '/shopping_list/:id', to: 'users#shopping_list', as: 'shopping_list'
   get '/public_recipes', to: 'recipes#public_recipes'
   get '/generalshoppinglist', to: 'generalshoppinglist#index'
-  get 'new_food', to: 'recipe_foods#new', as: 'new_recipe_food'
+  # get 'new_food', to: 'recipe_foods#new', as: 'new_recipe_food'
+  get 'add_food', to: 'recipe_foods#new', as: 'add_food_recipe'
+
 end
