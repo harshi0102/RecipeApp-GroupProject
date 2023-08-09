@@ -1,10 +1,10 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = if user_signed_in?
-                 current_user.recipes
-               else
-                 Recipe.all
-               end
+    if user_signed_in?
+      @recipes = current_user.recipes.or(Recipe.where(public: true))
+    else
+      @recipes = Recipe.where(public: true)
+    end
   end
 
   def new
@@ -54,6 +54,6 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:public)
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
 end
