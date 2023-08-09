@@ -1,0 +1,13 @@
+<h1>Public Recipe List:</h1>
+
+<% if @public_recipes.any? %>
+  <ul>
+    <% @public_recipes.each do |recipe| %>
+      <li>
+        <%= link_to recipe.name, public_recipe_path(recipe) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No public recipes available.</p>
+<% end %>
