@@ -1,5 +1,5 @@
 <div class="user-recipes">
-  <h2>Your Recipes</h2>
+  <h2 class="text-center">Your Recipes</h2>
   <ul>
     <% @recipes.each do |recipe| %>
       <li class="recipe-box"><%= link_to recipe.name, recipe_path(recipe) %></li>
