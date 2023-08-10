@@ -33,10 +33,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* .field {
-  margin-bottom: 15px;
-} */
-
 .field label {
   display: block;
   margin-bottom: 5px;
@@ -74,9 +70,10 @@ body {
   cursor: pointer;
 }
 
+/*
 .actions input[type="submit"]:hover {
   background-color: #0056b3;
-}
+} */
 
 .links {
   text-align: center;
@@ -94,7 +91,6 @@ body {
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #f9f9f9;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -112,14 +108,7 @@ body {
   color: #000;
   font-size: large;
 }
-ul li {
-  text-decoration: none;
-  list-style-type: none;
-}
 
-ul li a {
-  text-decoration: none;
-}
 .name-label {
   display: block;
   margin-bottom: 5px;
@@ -159,17 +148,21 @@ ul li a {
   justify-content: center;
   gap: 10px;
 }
+
 .new-button[disabled] {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
 .fr-food {
   padding: 10px;
   text-align: center;
 }
+
 .body-foods tr:nth-child(odd) {
   background-color: #f9f9f9;
 }
+
 .no-recipes {
   list-style-type: none;
   color: #666;
@@ -190,6 +183,7 @@ ul li a {
 .first-row th {
   border-top: none;
 }
+
 .table-foods {
   width: 100%;
   border-collapse: collapse;
@@ -208,6 +202,7 @@ ul li a {
   width: 100%;
   align-items: center;
 }
+
 .recipes {
   display: flex;
   flex-direction: column;
@@ -241,6 +236,7 @@ ul li a {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: #000;
   margin: 0;
+  font-size: 24px;
 }
 
 .recipe-des {
@@ -295,6 +291,7 @@ ul li a {
 .recipe-detail-table {
   width: 45rem;
 }
+
 .body-elements {
   background-color: #f9f9f9;
 }
@@ -304,39 +301,39 @@ ul li a {
   color: white;
 }
 
-tbody tr:nth-child(even) {
+.recipe-detail-table tbody tr:nth-child(odd) {
   background: #ccc;
 }
+
 .even-row {
   background-color: #f2f2f2;
 }
 
-tbody tr:nth-child(odd) {
+.recipe-detail-table tbody tr:nth-child(odd) tbody tr:nth-child(odd) {
   background: #fff;
 }
-/* styling for recipe*/
+
 .container {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
   background-color: #fff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Style for the form container */
-*/ .form {
+.form {
   padding: 20px;
   border-radius: 8px;
+  margin-top: 10px;
+  width: 20%;
 }
 
-/* Style for form labels */
 .forms label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-/* Style for form fields */
 .forms input[type="text"],
 .forms input[type="number"],
 .forms textarea {
@@ -348,22 +345,20 @@ tbody tr:nth-child(odd) {
   box-sizing: border-box;
 }
 
-/* Style for checkbox */
 .forms input[type="checkbox"] {
   margin-top: 5px;
 }
 
-/* Style for submit button */
-.forms input[type="submit"] {
+/*
+.actions input[type="submit"] {
+  padding: 10px 20px;
   background-color: #007bff;
   color: #fff;
-  padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 3px;
   cursor: pointer;
-}
+} */
 
-/* Style for back link */
 .back-link {
   display: block;
   margin-top: 10px;
@@ -372,19 +367,6 @@ tbody tr:nth-child(odd) {
   text-decoration: none;
 }
 
-.back-link:hover {
-  text-decoration: underline;
-}
-.forms {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f4f4f4;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-/* styling for shopping*/
-/* Add these styles to your CSS or style tag */
 .shopping-container {
   width: 100%;
   text-align: center;
@@ -409,8 +391,9 @@ tbody tr:nth-child(odd) {
 .table {
   width: 100%;
   border-collapse: collapse;
-  text-align: center; /* Center align the table content */
+  text-align: center;
 }
+
 .row-element {
   padding: 10px;
   text-align: center;
@@ -424,54 +407,26 @@ tbody tr:nth-child(odd) {
 
 .table th {
   background-color: #f8f9fa;
-  text-align: center; /* Center align the table header */
+  text-align: center;
   font-weight: bold;
 }
 
-.table-striped tbody tr:nth-of-type(odd) {
+/* .table-striped tbody tr:nth-of-type(odd) {
   background-color: #f8f9fa;
 }
 
 .table-hover tbody tr:hover {
   background-color: #f2f2f2;
-}
+} */
 
-/* Make the table columns span the width */
 .table th:nth-child(1),
 .table td:nth-child(1),
 .table th:nth-child(2),
 .table td:nth-child(2),
 .table th:nth-child(3),
 .table td:nth-child(3) {
-  width: 33.33%; /* Divide the width evenly among the three columns */
+  width: 33.33%;
 }
-/* styling for show recipe detais*/
-
-.recipe-name {
-  font-size: 24px;
-  color: #333;
-}
-
-.recipe-detail-table {
-  width: 90%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.recipe-detail-table th,
-.recipe-detail-table td {
-  padding: 10px;
-  border: 1px solid #ddd;
-}
-
-.private-recipe-message {
-  color: #d9534f;
-}
-
-.add-new-food {
-  margin-right: 10px;
-}
-/* styling for public recipes */
 
 .public-recipe-list-title {
   font-size: 24px;
@@ -479,19 +434,16 @@ tbody tr:nth-child(odd) {
   text-align: center;
 }
 
-/* Style the list container */
 .public-recipe-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* Style each recipe item */
 .public-recipe-item {
   margin-bottom: 10px;
 }
 
-/* Style the recipe link */
 .public-recipe-link {
   display: block;
   padding: 10px;
