@@ -1,7 +1,6 @@
 <%= turbo_frame_tag 'food_form' do %>
   <div class="food-form">
     <%= form_with model: @food, url: foods_path, data: { turbo_frame: 'food_form' } do |form| %>
-      <%= form.hidden_field :authenticity_token, value: form_authenticity_token %>
       <h1 class="new-recipe-title"> New Food </h1>
       <div class="field">
         <%= form.label :name, class: "name-label" %>
