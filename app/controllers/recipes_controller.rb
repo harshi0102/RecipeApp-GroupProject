@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:update]
+
   def index
     @recipes = if user_signed_in?
                  current_user.recipes.or(Recipe.where(public: true))
@@ -26,10 +28,13 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @recipe_foods = @recipe.recipe_foods.includes(:food)
+    @foods = @recipe_foods.map(&:food)
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe_food = @recipe.recipe_foods.find(params[:id])
   end
 
   def update
@@ -52,7 +57,7 @@ class RecipesController < ApplicationController
   end
 
   def public_recipes
-    @recipes = Recipe.where(public: true).includes(:user, recipe_foods: :food).order(created_at: :desc)
+    @public_recipes = Recipe.where(public: true).includes(:user).order(created_at: :desc)
   end
 
   private

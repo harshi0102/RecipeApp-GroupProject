@@ -1,13 +1,9 @@
-<h1>Public Recipes</h1>
+<h1>Public Recipe List:</h1>
 
-<% if @recipes %>
-  <ul>
-    <% @recipes.each do |recipe| %>
-      <li>
-        <%= link_to recipe.name, recipe_path(recipe) %>
-      </li>
-    <% end %>
+<% if @public_recipes.any? %>
+  <ul class="public-recipe-list">
+    <%= render partial: 'shared/public', collection: @public_recipes %>
   </ul>
 <% else %>
-  <p>No public recipes found.</p>
+  <p class="no-public-recipes">No public recipes available.</p>
 <% end %>
