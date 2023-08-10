@@ -126,12 +126,13 @@ body {
 }
 
 .new-button {
-  padding: 10px 20px;
+  padding: 5px 10px;
   background-color: #007bff;
-  color: #fff;
+  color: white;
   border: none;
-  border-radius: 3px;
   cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
 .new-button:hover {
@@ -147,40 +148,49 @@ body {
 
 .button-cnt {
   display: flex;
-  flex-direction: row;
-  gap: 4px;
+  justify-content: center;
+  gap: 10px;
+}
+.new-button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.fr-food {
+  padding: 10px;
+  text-align: center;
+}
+.body-foods tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+.no-recipes {
+  list-style-type: none;
+  color: #666;
+  font-style: italic;
 }
 
-.fr-food,
-.row-element {
-  padding-left: 10px;
-  box-sizing: border-box;
+.body-foods th {
+  padding: 10px;
+  text-align: center;
 }
 
-.body-elements {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+.body-foods td {
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid #ccc;
 }
 
-.even-row {
-  background-color: #d3cfcf;
+.first-row th {
+  border-top: none;
 }
-
-.odd-row {
-  background-color: #e8e8e8;
-}
-
 .table-foods {
   width: 100%;
   border-collapse: collapse;
-  border-spacing: 0 1rem;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  border: 1px solid #ccc;
+  margin-top: 20px;
 }
 
 .header-foods {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  align-items: flex-start;
-  background-color: #a79595;
-  color: #000;
+  background-color: darkcyan;
 }
 
 .recipes-container {
@@ -190,7 +200,6 @@ body {
   width: 100%;
   align-items: center;
 }
-
 .recipes {
   display: flex;
   flex-direction: column;
@@ -278,6 +287,9 @@ body {
 .recipe-detail-table {
   width: 45rem;
 }
+.body-elements {
+  background-color: #f9f9f9;
+}
 
 .recipe-detail-table thead {
   background-color: darkcyan;
@@ -286,6 +298,9 @@ body {
 
 tbody tr:nth-child(even) {
   background: #ccc;
+}
+.even-row {
+  background-color: #f2f2f2;
 }
 
 tbody tr:nth-child(odd) {
@@ -387,6 +402,10 @@ tbody tr:nth-child(odd) {
   width: 100%;
   border-collapse: collapse;
   text-align: center; /* Center align the table content */
+}
+.row-element {
+  padding: 10px;
+  text-align: center;
 }
 
 .table th,

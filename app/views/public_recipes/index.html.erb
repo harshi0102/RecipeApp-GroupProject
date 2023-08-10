@@ -4,7 +4,7 @@
   <ul>
     <% @public_recipes.each do |recipe| %>
       <li>
-        <%= link_to recipe.name, public_recipe_path(recipe) %>
+        <%= link_to "#{recipe.name} by #{recipe.user.name}", public_recipe_path(recipe) %>
       </li>
     <% end %>
   </ul>
