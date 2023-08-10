@@ -90,7 +90,7 @@ body {
 
 .food-form {
   width: 400px;
-  margin: 0 auto;
+  margin-top: 20px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -301,10 +301,10 @@ tbody tr:nth-child(odd) {
 }
 
 /* Style for the form container */
-/* .form {
+*/ .form {
   padding: 20px;
   border-radius: 8px;
-} */
+}
 
 /* Style for form labels */
 .forms label {
@@ -360,4 +360,61 @@ tbody tr:nth-child(odd) {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-/* styling for public recipe*/
+/* styling for shopping*/
+/* Add these styles to your CSS or style tag */
+.shopping-container {
+  width: 100%;
+  text-align: center;
+}
+
+.text-secondary {
+  color: #6c757d;
+}
+
+.row.col-8.offset-2 {
+  margin-top: 20px;
+}
+
+.row.col-6 {
+  margin-bottom: 10px;
+}
+
+.main-container-t {
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center; /* Center align the table content */
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f8f9fa;
+  text-align: center; /* Center align the table header */
+  font-weight: bold;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f8f9fa;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+/* Make the table columns span the width */
+.table th:nth-child(1),
+.table td:nth-child(1),
+.table th:nth-child(2),
+.table td:nth-child(2),
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  width: 33.33%; /* Divide the width evenly among the three columns */
+}
