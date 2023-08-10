@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:update]
+
   def index
     @recipes = if user_signed_in?
                  current_user.recipes.or(Recipe.where(public: true))

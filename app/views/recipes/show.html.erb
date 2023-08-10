@@ -1,4 +1,3 @@
-
 <% if @recipe.public? || @recipe.user == current_user %>
 
 <h1><%= @recipe.name %></h1>
@@ -22,15 +21,15 @@
         <td><%= @recipe.description %></td>
         <td><%= @recipe.public ? 'Yes' : 'No' %></td>
         <td>
-          <%= form_for(@recipe, url: recipe_path(@recipe), method: :patch, remote: true) do |f| %>
-            <div class="form-check form-switch">
+          <div class="form-check form-switch">
+            <%= form_for(@recipe, url: recipe_path(@recipe), method: :patch, remote: true) do |f| %>
               <%= f.label :public, class: "form-check-label" do %>
                 <%= f.check_box :public, class: "form-check-input", checked: @recipe.public? %>
                 <%= @recipe.public? ? "Public" : "Private" %>
               <% end %>
-            </div>
-            <%= f.submit "Update Visibility", class: "btn btn-primary" %>
-          <% end %>
+              <%= f.submit "Update Visibility", class: "btn btn-primary" %>
+            <% end %>
+          </div>
         </td>
         <td>
           <% if @recipe.user == current_user %>
