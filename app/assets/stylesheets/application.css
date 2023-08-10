@@ -418,3 +418,29 @@ tbody tr:nth-child(odd) {
 .table td:nth-child(3) {
   width: 33.33%; /* Divide the width evenly among the three columns */
 }
+/* styling for show recipe detais*/
+
+.recipe-name {
+  font-size: 24px;
+  color: #333;
+}
+
+.recipe-detail-table {
+  width: 90%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.recipe-detail-table th,
+.recipe-detail-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.private-recipe-message {
+  color: #d9534f;
+}
+
+.add-new-food {
+  margin-right: 10px;
+}
