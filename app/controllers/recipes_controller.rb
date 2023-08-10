@@ -28,10 +28,13 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @recipe_foods = @recipe.recipe_foods.includes(:food)
+    @foods = @recipe_foods.map(&:food)
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe_food = @recipe.recipe_foods.find(params[:id])
   end
 
   def update

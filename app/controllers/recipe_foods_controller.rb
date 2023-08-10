@@ -1,4 +1,6 @@
 class RecipeFoodsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:update]
+
   def new
     @recipe_food = RecipeFood.new
     @foods = Food.where(user_id: current_user.id)
