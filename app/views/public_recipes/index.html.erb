@@ -1,13 +1,13 @@
-<h1>Public Recipe List:</h1>
+<h1 class="public-recipe-list-title">Public Recipe List:</h1>
 
 <% if @public_recipes.any? %>
-  <ul>
+  <ul class="public-recipe-list">
     <% @public_recipes.each do |recipe| %>
-      <li>
-        <%= link_to "#{recipe.name} by #{recipe.user.name}", public_recipe_path(recipe) %>
+      <li class="public-recipe-item">
+        <%= link_to "#{recipe.name} by #{recipe.user.name}", public_recipe_path(recipe), class: "public-recipe-link" %>
       </li>
     <% end %>
   </ul>
 <% else %>
-  <p>No public recipes available.</p>
+  <p class="no-public-recipes">No public recipes available.</p>
 <% end %>
