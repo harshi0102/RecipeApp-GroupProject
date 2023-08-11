@@ -131,11 +131,11 @@ To run tests, run the following command:
 - Twitter: [Twitter](https://twitter.com/harshika0102me)
 - Linkedin: [LinkedIn](https://www.linkedin.com/in/harshikagovind/)
 
-🕵🏽‍♀️ **Ahmed**
+🕵🏽‍♀️ **Ahmad Saeed**
 
-- Github: [GitHub](https://github.com/harshi0102/)
-- Twitter: [Twitter](https://twitter.com/harshika0102me)
-- Linkedin: [LinkedIn](https://www.linkedin.com/in/harshikagovind/)
+- Github: [GitHub](https://github.com/ehmaddd/)
+- Twitter: [Twitter](https://twitter.com/ehmaddd_pk)
+- Linkedin: [LinkedIn](https://www.linkedin.com/in/ehmaddd/)
 
 <p align="right"><a href="#readme-top">Back to top</a></p>
 
