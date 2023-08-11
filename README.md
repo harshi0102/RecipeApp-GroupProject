@@ -14,7 +14,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-- [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
@@ -69,12 +68,6 @@ The Recipe app keeps track of all your recipes, ingredients, and inventory. It w
 - **[Authorization and Authentication]**
 
 <p align="right"><a href="#readme-top">Back to top</a></p>
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-### Video Demo Link <a name="live-demo-link"></a>
-
-Comming soon
 
 <!-- GETTING STARTED -->
 
