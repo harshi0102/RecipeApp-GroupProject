@@ -1,0 +1,5 @@
+<%= turbo_frame_tag 'food_form' do %>
+  <%= form_with model: @food, url: foods_path, class: 'form', data: { turbo_frame: 'food_form' } do |form| %>
+    <%= render 'form', food: @food %>
+  <% end %>
+<% end %>

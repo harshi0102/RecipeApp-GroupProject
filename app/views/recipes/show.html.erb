@@ -1,0 +1,91 @@
+
+<h2><%= @recipe.name %></h2>
+<div class='show-recipe'>
+  <div class='show-recipe-left'>
+    <p>Preparation time: <%= @recipe.preparation_time %> hours</p>
+    <% if can? :destroy, @recipe %>
+      <div>
+        Public
+        <% if @recipe.public %>
+          <input type='checkbox' checked>
+        <% elsif !@recipe.public %>
+          <input type='checkbox'>
+        <% end %>
+      </div>
+    <% else %>
+      <% if @recipe.public %>
+        <div>
+          Public
+          <input type='checkbox' checked disabled>
+        </div>
+      <% elsif !@recipe.public %>
+        <div>
+          Public
+          <input type='checkbox' disabled>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <p>Cooking time: <%= @recipe.cooking_time %> hours</p>
+  <p>Steps go here...</p>
+  <div class='show-recipe-left'>
+    <button class="new-button">
+      <%= link_to "General shopping list", generalshoppinglist_path, class:"new-recipe" %>
+    </button>
+    <% if can? :update, @recipe %>
+      <button class="new-button">
+        <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe), class:"new-recipe" %>
+      </button>
+    <% end %>
+  </div>
+  <hr>
+  <%= render partial: 'shared/table', locals: {foods: @foods, view: 'recipes'} %>
+</div>
+
+<% if @recipe %>
+  <table class="recipe-detail-table">
+    <thead>
+      <tr>
+        <th>Preparation Time</th>
+        <th>Cooking Time</th>
+        <th>Description</th>
+        <th>Public</th>
+        <th>Status Change</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @recipe.preparation_time %> minutes</td>
+        <td><%= @recipe.cooking_time %> minutes</td>
+        <td><%= @recipe.description %></td>
+        <td><%= @recipe.public ? 'Yes' : 'No' %></td>
+        <td>
+          <div class="form-check form-switch">
+            <%= form_for(@recipe, url: recipe_path(@recipe), method: :patch, remote: true) do |f| %>
+              <%= f.label :public, class: "form-check-label" do %>
+                <%= f.check_box :public, class: "form-check-input", checked: @recipe.public? %>
+                <%= @recipe.public? ? "Public" : "Private" %>
+              <% end %>
+              <%= f.submit "Update Visibility", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </td>
+        <td>
+          <% if @recipe.user == current_user %>
+
+            <%= button_to "Delete", recipe_path(@recipe), method: :delete, data: { confirm: "Are you sure you want to delete this recipe?" }, class: "btn btn-danger btn-sm" %>
+            <%= button_to "Add New Food", new_food_path, class: "btn btn-success add-new-food mt-1 btn-sm", method: :get %>
+            <%= link_to "Shopping list", generalshoppinglist_path, class: "btn btn-secondary mt-1 btn-sm" %>
+
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% else %>
+  <p class="private-recipe-message">This recipe is private and cannot be viewed.</p>
+<% end %>
+
+<%= link_to 'Back to Recipes List', recipes_path, class: "btn btn-link" %>

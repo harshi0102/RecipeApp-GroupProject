@@ -1,0 +1,9 @@
+<h1>Public Recipe List:</h1>
+
+<% if @public_recipes.any? %>
+  <ul class="public-recipe-list">
+    <%= render partial: 'shared/public', collection: @public_recipes %>
+  </ul>
+<% else %>
+  <p class="no-public-recipes">No public recipes available.</p>
+<% end %>
